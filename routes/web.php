@@ -9,6 +9,7 @@ Route::get('/', function () {
     $latestRecipes = Recipe::latest()->take(4)->get();
     $categories = Category::withCount('recipes')
         ->orderBy('recipes_count', 'DESC')
+        ->with('recipes')
         ->take(3)
         ->get();
 
