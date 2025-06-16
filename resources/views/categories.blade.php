@@ -3,6 +3,7 @@
 @section('title', 'Categories')
 
 @section('content')
+    @if(request()->has('q'))
     <div class="px-4 mb-5 text-center border-bottom">
         <h1 class="display-5 fw-bold text-body-emphasis">
             <i class="fas fa-certificate text-warning"></i>
@@ -25,13 +26,14 @@
             </div>
         </div>
     </div>
+    @endif
 
     <!-- Search form -->
     <div class="row">
         <div class="col-12">
-            <form method="GET" class="form-inline mc-mb-80 mc-search-form">
-                <input class="form-control mc-search-input" name="query" type="text" placeholder="Search..."
-                       aria-label="Search">
+            <form class="form-inline mc-mb-80 mc-search-form">
+                <input class="form-control mc-search-input" name="q" type="text" placeholder="Search..."
+                       aria-label="Search" value="{{request('q')}}">
                 <button class="mc-search-button" type="submit">
                     <i class="fas fa-search mc-search-icon" aria-hidden="true"></i>
                 </button>
@@ -57,6 +59,11 @@
             @empty
                 <x-no-data/>
             @endforelse
+            @if(request()->has('q'))
+                    <a class="btn btn-outline-dark" href="{{ route('categories.index') }}">
+                        Clear Search
+                    </a>
+            @endif
         </div>
     </div>
 
