@@ -1,23 +1,9 @@
 <?php
 
-use App\Models\Category;
-use App\Models\Recipe;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    $carouselRecipes = Recipe::orderBy('view_count', 'DESC')->take(3)->get();
-    $latestRecipes = Recipe::latest()->take(4)->get();
-    $categories = Category::withCount('recipes')
-        ->orderBy('recipes_count', 'DESC')
-        ->with('recipes')
-        ->take(3)
-        ->get();
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-    return view('home', compact('carouselRecipes', 'latestRecipes', 'categories'));
-});
-
-Route::get('/categories', function () {
-   $categories = Category::withCount('recipes')->paginate(8);
-
-   return view('categories', compact('categories'));
-});
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
