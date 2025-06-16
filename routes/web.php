@@ -15,3 +15,9 @@ Route::get('/', function () {
 
     return view('home', compact('carouselRecipes', 'latestRecipes', 'categories'));
 });
+
+Route::get('/categories', function () {
+   $categories = Category::withCount('recipes')->paginate(8);
+
+   return view('categories', compact('categories'));
+});
