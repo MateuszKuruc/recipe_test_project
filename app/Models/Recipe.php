@@ -49,4 +49,43 @@ class Recipe extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function prepareTimeFormatted(): Attribute
+    {
+        return Attribute::make(get: function (mixed $value, array $attributes) {
+           $minutes = $attributes['prepare_time'];
+
+           return $this->formatTimeBasedOnMinutes($minutes);
+        });
+    }
+
+    public function cookingTimeFormatted(): Attribute
+    {
+        return Attribute::make(get: function (mixed $value, array $attributes) {
+            $minutes = $attributes['cooking_time'];
+
+            return $this->formatTimeBasedOnMinutes($minutes);
+        });
+    }
+
+    /**
+    * @param mixed $minutes
+    * @return string
+    */
+    private function formatTimeBasedOnMinutes(mixed $minutes): string
+    {
+        $hours = floor($minutes / 60);
+        $minutes = $minutes % 60;
+
+        $output = '';
+        if($minutes >0) {
+            $output = "$minutes min.";
+        }
+
+        if($hours >0) {
+            $output = "$hours hrs". $output;
+        }
+
+        return $output;
+    }
 }
