@@ -69,82 +69,19 @@
     </div>
 
     <div class="container px-4 py-5">
-        <h2 class="pb-2 mb-2 border-bottom d-flex justify-content-between">
-            Quick & Easy
-            <a href="#!" class="btn btn-outline-dark">Browse All</a>
-        </h2>
+        @foreach($categories as $category)
+            <h2 class="pb-2 mb-2 border-bottom d-flex justify-content-between">
+                {{ $category->title }}
+                <a href="#!" class="btn btn-outline-dark">Browse All</a>
+            </h2>
+
+
         <div class="row">
-            <article class="col-12 col-md-6 col-lg-3">
-                <a href="single-recipe.html" class="effect-lily mc-post-link">
-                    <div class="mc-post-link-inner">
-                        <img src="img/1.jpeg" alt="Peanut Butter and Jelly" class="img-fluid">
-                    </div>
-                    <span class="position-absolute mc-new-badge">
-                        <i class="fas fa-certificate"></i>
-                        Featured
-                    </span>
-                </a>
-                <a href="single-recipe.html">
-                    <h2 class="mc-pt-20 mc-post-title">Peanut Butter and Jelly</h2>
-                </a>
-            </article>
-
-            <article class="col-12 col-md-6 col-lg-3">
-                <a href="single-recipe.html" class="effect-lily mc-post-link">
-                    <div class="mc-post-link-inner">
-                        <img src="img/2.jpeg" alt="Image" class="img-fluid">
-                    </div>
-                    <h2 class="mc-pt-30 mc-post-title">Buffalo Wings</h2>
-                </a>
-            </article>
-
-            <article class="col-12 col-md-6 col-lg-3">
-                <a href="single-recipe.html" class="effect-lily mc-post-link">
-                    <div class="mc-post-link-inner">
-                        <img src="img/3.jpeg" alt="Image" class="img-fluid">
-                    </div>
-                    <h2 class="mc-pt-30 mc-post-title">Chocolate Chip Cookies</h2>
-                </a>
-            </article>
-
-            <article class="col-12 col-md-6 col-lg-3">
-                <a href="single-recipe.html" class="effect-lily mc-post-link">
-                    <div class="mc-post-link-inner">
-                        <img src="img/5.jpeg" alt="Image" class="img-fluid">
-                    </div>
-                    <h2 class="mc-pt-30 mc-post-title">Macaroni & cheese</h2>
-                </a>
-            </article>
-
+            @foreach($category->recipes->take(4) as $recipe)
+                <x-recipe-card-sm :is-featured="(bool) $recipe->featured_at" :latest-recipe="$recipe" />
+            @endforeach
         </div>
-    </div>
-
-    <div class="container px-4 py-5">
-        <h2 class="pb-2 mb-2 border-bottom d-flex justify-content-between">
-            Middle Eastern
-            <a href="#!" class="btn btn-outline-dark">Browse All</a>
-        </h2>
-        <div class="row">
-            <article class="col-12 col-md-6 col-lg-3">
-                <a href="single-recipe.html" class="effect-lily mc-post-link mc-pt-20">
-                    <div class="mc-post-link-inner">
-                        <img src="img/6.jpeg" alt="Image" class="img-fluid">
-                    </div>
-                    <h2 class="mc-pt-30 mc-post-title">Chicken Shawarma (Middle Eastern)</h2>
-                </a>
-            </article>
-
-            <article class="col-12 col-md-6 col-lg-3">
-                <a href="single-recipe.html" class="effect-lily mc-post-link mc-pt-20">
-                    <div class="mc-post-link-inner">
-                        <img src="img/4.jpeg" alt="Image" class="img-fluid">
-                    </div>
-                    <h2 class="mc-pt-30 mc-post-title">Delicious Falafel Recipe (Fried or Baked)</h2>
-                </a>
-            </article>
-
-        </div>
-
+        @endforeach
         <div class="row mt-5">
             <a href="#!" class="btn w-100 btn-outline-dark btn-xs px-4">View All Categories</a>
         </div>
