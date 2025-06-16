@@ -12,9 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,200;0,400;0,700;1,400;1,700;1,900&display=swap"
           rel="stylesheet">
     <!-- End of Google Fonts -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="fontawesome/css/all.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/fontawesome/css/all.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 
 </head>
 <body>
