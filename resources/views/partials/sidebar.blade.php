@@ -29,26 +29,15 @@
         </ul>
         <hr class="mb-3 mc-hr-primary">
         <h2 class="mb-4 mc-post-title">Related Recipes</h2>
-        <a href="#" class="d-block mc-mb-40">
-            <figure>
-                <img src="/img/2.jpeg" alt="Image" class="mb-3 img-fluid rounded-3 shadow-lg">
-                <figcaption class="mc-color-primary">Duis mollis diam nec ex viverra scelerisque a sit
-                </figcaption>
-            </figure>
-        </a>
-        <a href="#" class="d-block mc-mb-40">
-            <figure>
-                <img src="/img/6.jpeg" alt="Image" class="mb-3 img-fluid rounded-3 shadow-lg">
-                <figcaption class="mc-color-primary">Integer quis lectus eget justo ullamcorper
-                    ullamcorper
-                </figcaption>
-            </figure>
-        </a>
-        <a href="#" class="d-block mc-mb-40">
-            <figure>
-                <img src="/img/4.jpeg" alt="Image" class="mb-3 img-fluid rounded-3 shadow-lg">
-                <figcaption class="mc-color-primary">Nam lobortis nunc sed faucibus commodo</figcaption>
-            </figure>
-        </a>
+
+        @forelse($relatedRecipes as $recipe)
+            <a href="#" class="d-block mc-mb-40">
+                <figure>
+                    <img src="/img/{{mt_rand(1, 6)}}.jpeg" alt="{{ $recipe->title }}" class="mb-3 img-fluid rounded-3 shadow-lg">
+                    <figcaption class="mc-color-primary">{{ $recipe->title }}</figcaption>
+                </figure>
+            </a>
+            @empty
+        @endforelse
     </div>
 </aside>
