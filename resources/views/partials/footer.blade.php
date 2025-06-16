@@ -4,7 +4,7 @@
             <a href="#!"
                class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none site-logo">
                 <div class="mc-site-header">
-                    <img src="img/logo.png" alt="Logo" width="70px">
+                    <img src="/img/logo.png" alt="Logo" width="70px">
                     <h3 class="text-center site-title">
                         Lara<span class="fw-light">Recipes</span>
                     </h3>

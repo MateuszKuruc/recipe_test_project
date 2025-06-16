@@ -5,7 +5,7 @@
         </button>
         <div class="mc-site-header">
             <a href="index.html" class="mb-3 mx-auto site-logo">
-                <img src="img/logo.png" alt="Logo" width="70px">
+                <img src="/img/logo.png" alt="Logo" width="70px">
             </a>
             <h1 class="text-center site-title">Lara<span class="fw-light">Recipes</span></h1>
         </div>
