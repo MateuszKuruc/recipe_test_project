@@ -37,6 +37,7 @@ class CategoryController extends Controller
             ->withQueryString();
 
         $flags = Recipe::FLAGS;
+        $category->viewed();
 
         return view('categories.show', compact('category', 'recipes', 'flags'));
     }
