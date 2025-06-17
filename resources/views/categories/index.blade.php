@@ -3,7 +3,7 @@
 @section('title', 'Categories')
 
 @section('content')
-    @if(request()->has('q'))
+    @if(!request()->has('q'))
         <div class="px-4 mb-5 text-center border-bottom">
             <h1 class="display-5 fw-bold text-body-emphasis">
                 <i class="fas fa-certificate text-warning"></i>
@@ -21,7 +21,7 @@
             </div>
             <div class="overflow-hidden" style="max-height: 30vh;">
                 <div class="container px-5">
-                    <img src="img/1.jpeg" class="img-fluid border rounded-3 shadow-lg mb-4"
+                    <img src="/img/1.jpeg" class="img-fluid border rounded-3 shadow-lg mb-4"
                          alt="Example image" width="700" height="500" loading="lazy">
                 </div>
             </div>
