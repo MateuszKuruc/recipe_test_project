@@ -11,30 +11,12 @@
         </div>
         <nav class="mc-nav" id="mc-nav">
             <ul>
-                <li class="mc-nav-item active"><a href="index.html" class="mc-nav-link">
-                        <i class="fas fa-carrot"></i>
-                        Home
-                    </a></li>
-                <li class="mc-nav-item"><a href="categories.html" class="mc-nav-link">
-                        <i class="fas fa-cubes-stacked"></i>
-                        Categories
-                    </a></li>
-                <li class="mc-nav-item"><a href="single-category.html" class="mc-nav-link">
-                        <i class="fas fa-cubes-stacked"></i>
-                        Single Category
-                    </a></li>
-                <li class="mc-nav-item"><a href="single-recipe.html" class="mc-nav-link">
-                        <i class="fas fa-bowl-food"></i>
-                        Single Recipe
-                    </a></li>
-                <li class="mc-nav-item"><a href="about.html" class="mc-nav-link">
-                        <i class="fas fa-lemon"></i>
-                        About Us
-                    </a></li>
-                <li class="mc-nav-item"><a href="contact.html" class="mc-nav-link">
-                        <i class="fas fa-utensils"></i>
-                        Contact Us
-                    </a></li>
+                @foreach($navLinks as $link)
+                    <li class="mc-nav-item {{ $link['cssClasses'] }}"><a href="{{route($link['routeName']) }}" class="mc-nav-link">
+                            <i class="fas {{ $link['icon'] }}"></i>
+                        {{ $link['title'] }}
+                        </a></li>
+                @endforeach
             </ul>
         </nav>
         <div class="mc-mb-65">
