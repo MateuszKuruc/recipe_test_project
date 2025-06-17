@@ -24,62 +24,26 @@
         <div class="col mb-3">
             <h5>Categories</h5>
             <ul class="nav flex-column">
-                <li class="nav-item mb-2">
-                    <a href="#" class="nav-link p-0 text-body-secondary">
-                        Category 1 <small>(12 recipes)</small>
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a href="#" class="nav-link p-0 text-body-secondary">
-                        Category 2 <small>(7 recipes)</small>
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a href="#" class="nav-link p-0 text-body-secondary">
-                        Category 3 <small>(6 recipes)</small>
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a href="#" class="nav-link p-0 text-body-secondary">
-                        Category 4 <small>(6 recipes)</small>
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a href="#" class="nav-link p-0 text-body-secondary">
-                        Category 5 <small>(4 recipes)</small>
-                    </a>
-                </li>
+                @foreach($categories as $category)
+                    <li class="nav-item mb-2">
+                        <a href="#" class="nav-link p-0 text-body-secondary">
+                            {{ Str::limit($category->title, 20 )}} <small>({{ $category->recipes_count }} recipes)</small>
+                        </a>
+                    </li>
+                @endforeach
             </ul>
         </div>
 
         <div class="col mb-3">
             <h5>Featured Recipes</h5>
             <ul class="nav flex-column">
-                <li class="nav-item mb-2">
-                    <a href="#" class="nav-link p-0 text-body-secondary">
-                        Recipe title 1
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a href="#" class="nav-link p-0 text-body-secondary">
-                        Recipe title 2
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a href="#" class="nav-link p-0 text-body-secondary">
-                        Recipe title 3
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a href="#" class="nav-link p-0 text-body-secondary">
-                        Recipe title 4
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a href="#" class="nav-link p-0 text-body-secondary">
-                        Recipe title 5
-                    </a>
-                </li>
+                @foreach($featuredRecipes as $recipe)
+                    <li class="nav-item mb-2">
+                        <a href="{{route('recipes.show', $recipe)}}" class="nav-link p-0 text-body-secondary">
+                            {{ Str::limit($recipe->title, 20 )}}
+                        </a>
+                    </li>
+                @endforeach
             </ul>
         </div>
 
