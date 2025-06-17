@@ -16,7 +16,7 @@
                     these offerings to cater to your needs and preferences, ensuring that what you encounter is
                     handpicked and tailored to suit your interests.</p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                    <button type="button" class="btn btn-warning btn-lg px-4">Browse Featured Recipes</button>
+                    <a href="{{route('recipes.index')}}?featured=1" class="btn btn-warning btn-lg px-4">Browse Featured Recipes</a>
                 </div>
             </div>
             <div class="overflow-hidden" style="max-height: 30vh;">
