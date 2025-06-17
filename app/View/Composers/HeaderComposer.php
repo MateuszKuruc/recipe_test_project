@@ -24,7 +24,7 @@ class HeaderComposer
         [
             'title' => 'Recipes Catalog',
             'icon' => 'bowl-food',
-            'routeName' => 'home',
+            'routeName' => 'recipes.index',
             'cssClasses' => $this->getCssClasses('recipes.index'),
         ],
          [
